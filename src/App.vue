@@ -30,12 +30,16 @@ const isReady = computed(() => operatorApi.isEndpointDefined() && operatorApi.is
           {{ message }}
         </Message>
 
+        <div class="spacer"></div>
+
         <div class="form-group">
           <FloatLabel>
             <InputText id="endpoint" v-model="state.endpoint" class="input-field" />
             <label for="endpoint">Endpoint</label>
           </FloatLabel>
         </div>
+
+        <div class="spacer"></div>
 
         <div class="form-group">
           <FloatLabel>
@@ -74,6 +78,10 @@ const isReady = computed(() => operatorApi.isEndpointDefined() && operatorApi.is
 
 .message {
   margin-bottom: 1.5rem;
+}
+
+.spacer {
+  height: 1rem;
 }
 
 .form-group {
