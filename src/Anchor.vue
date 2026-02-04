@@ -1,8 +1,18 @@
 <script setup lang="ts">
+import Card from 'primevue/card'
 </script>
 
 <template>
-  Anchor !
+  <Card>
+    <template #title>Anchor</template>
+    <template #content>
+      <p class="description">Anchor functionality coming soon</p>
+    </template>
+  </Card>
 </template>
 
-<style scoped></style>
+<style scoped>
+.description {
+  color: var(--p-text-muted-color);
+}
+</style>
