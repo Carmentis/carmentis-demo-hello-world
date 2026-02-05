@@ -7,14 +7,15 @@ import TabPanel from 'primevue/tabpanel'
 import Anchor from '@/Anchor.vue'
 import PublicHelloWorld from '@/PublicHelloWorld.vue'
 import OrganizationsList from '@/OrganizationsList.vue'
+import OrganizationTokens from '@/OrganizationTokens.vue'
 </script>
 
 <template>
-
   <Tabs value="0">
     <TabList>
       <Tab value="0">Hello World</Tab>
       <Tab value="2">Organizations</Tab>
+      <Tab value="3">Organization Tokens</Tab>
       <Tab value="1">Anchor</Tab>
     </TabList>
     <TabPanels>
@@ -26,6 +27,9 @@ import OrganizationsList from '@/OrganizationsList.vue'
       </TabPanel>
       <TabPanel value="2">
         <OrganizationsList />
+      </TabPanel>
+      <TabPanel value="3">
+        <OrganizationTokens />
       </TabPanel>
     </TabPanels>
   </Tabs>

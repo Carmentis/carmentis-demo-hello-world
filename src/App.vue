@@ -16,6 +16,10 @@ const message = computed(() => {
   return 'Ready to go!'
 })
 const isReady = computed(() => operatorApi.isEndpointDefined() && operatorApi.isApiKeyDefined())
+
+function goToSwagger() {
+  window.open(state.value.endpoint + '/swagger', '_blank')
+}
 </script>
 
 <template>
@@ -37,6 +41,9 @@ const isReady = computed(() => operatorApi.isEndpointDefined() && operatorApi.is
             <InputText id="endpoint" v-model="state.endpoint" class="input-field" />
             <label for="endpoint">Endpoint</label>
           </FloatLabel>
+          <Button @click="goToSwagger">
+            Go to swagger
+          </Button>
         </div>
 
         <div class="spacer"></div>
