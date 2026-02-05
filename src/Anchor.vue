@@ -69,7 +69,7 @@ async function publish() {
     })
   } catch (e) {
     console.error(`error: ${e}`)
-    toast.add({ severity: 'error', summary: 'Anchor error', detail: e.message })
+    toast.add({ severity: 'error', summary: 'Anchor error' })
   } finally {
   }
 }
@@ -92,7 +92,7 @@ async function checkStatus() {
     anchorRequestResponse.value = await store.getAnchorRequestById(publishedAnchorRequestId.value)
   } catch (e) {
     console.error(`error: ${e}`)
-    toast.add({ severity: 'error', summary: 'Get anchor request error', detail: e.message })
+    toast.add({ severity: 'error', summary: 'Get anchor request error' })
   } finally {
   }
 }
