@@ -86,6 +86,16 @@ export const useOperatorApi = defineStore('operator-api', () => {
     return response.data
   }
 
+  async function anchorWithWallet(payload: object) {
+    console.log('Anchoring')
+    isRequestRunning.value = true
+    if (client.value === undefined) throw new Error('Client is not initialized')
+    const response = await client.value?.post('/anchorWithWallet', payload)
+    console.log('Receiving data:', response.data)
+    isRequestRunning.value = false
+    return response.data
+  }
+
   async function getAnchorRequestById(anchorRequestId: string) {
     isRequestRunning.value = true
     if (client.value === undefined) throw new Error('Client is not initialized')
@@ -109,6 +119,7 @@ export const useOperatorApi = defineStore('operator-api', () => {
     organizationList,
     organizationTokens,
     anchor,
+    anchorWithWallet,
     getAnchorRequestById,
   }
 })

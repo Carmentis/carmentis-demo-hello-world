@@ -1,5 +1,6 @@
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
+import '@cmts-dev/carmentis-desk-connect-vuejs/style.css'
 
 import App from './App.vue'
 import router from './router'
@@ -8,6 +9,7 @@ import Aura from '@primeuix/themes/aura'
 import { ToastService } from 'primevue'
 
 const app = createApp(App)
+
 
 app.use(createPinia())
 app.use(router);

@@ -6,17 +6,17 @@ import TabPanels from 'primevue/tabpanels'
 import TabPanel from 'primevue/tabpanel'
 import Anchor from '@/Anchor.vue'
 import PublicHelloWorld from '@/PublicHelloWorld.vue'
-import OrganizationsList from '@/OrganizationsList.vue'
-import OrganizationTokens from '@/OrganizationTokens.vue'
+import FeatureAuthentication from '@/FeatureAuthentication.vue'
+import FeatureDeskAnchor from '@/FeatureDeskAnchor.vue'
 </script>
 
 <template>
   <Tabs value="0">
     <TabList>
       <Tab value="0">Hello World</Tab>
-      <Tab value="2">Organizations</Tab>
-      <Tab value="3">Organization Tokens</Tab>
-      <Tab value="1">Anchor</Tab>
+      <Tab value="2">Desk Authentiaction</Tab>
+      <Tab value="3">Desk Anchor</Tab>
+      <Tab value="1">Operator Anchor</Tab>
     </TabList>
     <TabPanels>
       <TabPanel value="0">
@@ -26,10 +26,10 @@ import OrganizationTokens from '@/OrganizationTokens.vue'
         <Anchor />
       </TabPanel>
       <TabPanel value="2">
-        <OrganizationsList />
+        <FeatureAuthentication />
       </TabPanel>
       <TabPanel value="3">
-        <OrganizationTokens />
+        <FeatureDeskAnchor />
       </TabPanel>
     </TabPanels>
   </Tabs>
