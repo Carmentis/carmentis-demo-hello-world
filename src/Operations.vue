@@ -8,6 +8,7 @@ import Anchor from '@/Anchor.vue'
 import PublicHelloWorld from '@/PublicHelloWorld.vue'
 import FeatureAuthentication from '@/FeatureAuthentication.vue'
 import FeatureDeskAnchor from '@/FeatureDeskAnchor.vue'
+import FeatureDeskJsonRpc from '@/FeatureDeskJsonRpc.vue'
 </script>
 
 <template>
@@ -17,6 +18,7 @@ import FeatureDeskAnchor from '@/FeatureDeskAnchor.vue'
       <Tab value="2">Desk Authentiaction</Tab>
       <Tab value="3">Desk Anchor</Tab>
       <Tab value="1">Operator Anchor</Tab>
+      <Tab value="4">Desk JSON-RPC</Tab>
     </TabList>
     <TabPanels>
       <TabPanel value="0">
@@ -30,6 +32,9 @@ import FeatureDeskAnchor from '@/FeatureDeskAnchor.vue'
       </TabPanel>
       <TabPanel value="3">
         <FeatureDeskAnchor />
+      </TabPanel>
+      <TabPanel value="4">
+        <FeatureDeskJsonRpc />
       </TabPanel>
     </TabPanels>
   </Tabs>

@@ -15,7 +15,7 @@
     "format": "prettier --write --experimental-cli src/"
   },
   "dependencies": {
-    "@cmts-dev/carmentis-desk-connect-vuejs": "^1.0.1",
+    "@cmts-dev/carmentis-desk-connect-vuejs": "^1.1.0",
     "@primeuix/themes": "^2.0.3",
     "@vueuse/core": "^14.2.0",
     "axios": "^1.13.4",
