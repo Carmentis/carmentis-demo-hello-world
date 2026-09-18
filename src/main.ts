@@ -10,13 +10,17 @@ import { ToastService } from 'primevue'
 
 const app = createApp(App)
 
-
 app.use(createPinia())
-app.use(router);
+app.use(router)
 app.use(ToastService)
 app.use(PrimeVue, {
   theme: {
     preset: Aura,
+    options: {
+      prefix: 'p',
+      darkModeSelector: 'none',
+      cssVariables: true,
+    },
   },
 })
 
