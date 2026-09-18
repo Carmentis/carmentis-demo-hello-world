@@ -106,7 +106,6 @@ function handleError(err: Error) {
 }
 
 .response-output {
-  background: #f5f5f5;
   border: 1px solid #ddd;
   border-radius: 4px;
   padding: 1rem;
@@ -116,7 +115,6 @@ function handleError(err: Error) {
 }
 
 .error-block .response-output {
-  background: #fff5f5;
   border-color: #ffcccc;
   color: #cc0000;
 }
