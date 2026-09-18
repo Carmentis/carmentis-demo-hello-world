@@ -17,13 +17,16 @@
   },
   "dependencies": {
     "@cmts-dev/carmentis-desk-connect-vuejs": "^1.1.0",
+    "@codemirror/lang-json": "^6.0.2",
     "@primeuix/themes": "^2.0.3",
     "@vueuse/core": "^14.2.0",
     "axios": "^1.13.4",
+    "codemirror": "^6.0.0",
     "pinia": "^3.0.4",
     "primevue": "^4.5.4",
     "vue": "^3.5.27",
-    "vue-router": "^5.0.1"
+    "vue-router": "^5.0.1",
+    "vue-codemirror": "^6.1.1"
   },
   "devDependencies": {
     "@tsconfig/node24": "^24.0.4",
