@@ -2,7 +2,7 @@
 import { CarmentisJsonRpcPopup } from '@cmts-dev/carmentis-desk-connect-vuejs'
 import Button from 'primevue/button'
 import InputText from 'primevue/inputtext'
-import AutoComplete from 'primevue/autocomplete'
+import Dropdown from 'primevue/dropdown'
 import { ref, computed } from 'vue'
 import { Codemirror } from 'vue-codemirror'
 import { json } from '@codemirror/lang-json'
@@ -23,17 +23,6 @@ const defaultRequest = {
 
 const requestText = ref(JSON.stringify(defaultRequest, null, 2))
 const selectedTemplate = ref<JsonRpcTemplate | null>(null)
-const templateSearchText = ref('')
-
-const filteredTemplates = computed(() => {
-  if (!templateSearchText.value) return jsonRpcTemplates
-  const search = templateSearchText.value.toLowerCase()
-  return jsonRpcTemplates.filter(
-    (t) =>
-      t.title.toLowerCase().includes(search) ||
-      t.description.toLowerCase().includes(search),
-  )
-})
 
 const parsedRequest = computed(() => {
   try {
@@ -54,9 +43,7 @@ const validRequest = computed(() => {
 })
 
 function onTemplateSelect(template: JsonRpcTemplate) {
-  selectedTemplate.value = template
   requestText.value = JSON.stringify(template.request, null, 2)
-  templateSearchText.value = ''
 }
 
 function sendRequest() {
@@ -135,16 +122,13 @@ const extensions = [json()]
     </div>
 
     <div class="controls">
-      <AutoComplete
+      <Dropdown
         :model-value="selectedTemplate"
-        :suggestions="filteredTemplates"
-        @update:model-value="(value) => value && onTemplateSelect(value)"
-        @complete="(event) => (templateSearchText = event.query)"
-        :min-length="0"
+        :options="jsonRpcTemplates"
+        @update:model-value="(value: JsonRpcTemplate | null) => value && onTemplateSelect(value)"
         placeholder="Select a template..."
         option-label="title"
-        class="template-autocomplete"
-        :show-empty-message="false"
+        class="template-dropdown"
       >
         <template #option="slotProps">
           <div class="template-option">
@@ -152,7 +136,7 @@ const extensions = [json()]
             <div class="template-description">{{ slotProps.option.description }}</div>
           </div>
         </template>
-      </AutoComplete>
+      </Dropdown>
 
       <Button
         @click="sendRequest"
@@ -314,12 +298,8 @@ h1 {
   align-items: center;
 }
 
-.template-autocomplete {
+.template-dropdown {
   flex: 0 1 300px;
-}
-
-:deep(.template-autocomplete.p-autocomplete) {
-  width: 100%;
 }
 
 .template-option,
@@ -356,7 +336,7 @@ h1 {
     align-items: stretch;
   }
 
-  .template-autocomplete {
+  .template-dropdown {
     flex: 1;
   }
 }
