@@ -74,14 +74,35 @@ const extensions = [json()]
     <div class="header">
       <h1>JSON-RPC Playground</h1>
       <p class="description">
-        Test and debug JSON-RPC requests to Carmentis Desk. Select a pre-built template or write your own request,
-        choose your relay endpoint, and instantly see the response.
+        Test and debug JSON-RPC requests to Carmentis Desk. Select a pre-built template or write
+        your own request, choose your relay endpoint, and instantly see the response.
       </p>
     </div>
 
     <div class="relay-section">
       <label for="relay-url">Relay</label>
       <InputText id="relay-url" v-model="relayUrl" type="text" class="relay-input" />
+    </div>
+
+    <div class="relay-section">
+      <label>Pre-built request</label>
+      <div>
+        <Dropdown
+          :model-value="selectedTemplate"
+          :options="jsonRpcTemplates"
+          @update:model-value="(value: JsonRpcTemplate | null) => value && onTemplateSelect(value)"
+          placeholder="Select a pre-built request..."
+          option-label="title"
+          class="template-dropdown"
+        >
+          <template #option="slotProps">
+            <div class="template-option">
+              <div class="template-title">{{ slotProps.option.title }}</div>
+              <div class="template-description">{{ slotProps.option.description }}</div>
+            </div>
+          </template>
+        </Dropdown>
+      </div>
     </div>
 
     <div class="main-layout">
@@ -122,22 +143,6 @@ const extensions = [json()]
     </div>
 
     <div class="controls">
-      <Dropdown
-        :model-value="selectedTemplate"
-        :options="jsonRpcTemplates"
-        @update:model-value="(value: JsonRpcTemplate | null) => value && onTemplateSelect(value)"
-        placeholder="Select a template..."
-        option-label="title"
-        class="template-dropdown"
-      >
-        <template #option="slotProps">
-          <div class="template-option">
-            <div class="template-title">{{ slotProps.option.title }}</div>
-            <div class="template-description">{{ slotProps.option.description }}</div>
-          </div>
-        </template>
-      </Dropdown>
-
       <Button
         @click="sendRequest"
         :disabled="!validRequest || isLoading"
